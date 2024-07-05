@@ -1,0 +1,25 @@
+body {
+    background-image: url("../Images/login-background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    margin: 0; 
+    padding: 0;
+    /* Thêm các thuộc tính CSS khác nếu cần thiết */
+}
+.hinhanh img{
+    height: 200px;
+    width: 200px;
+}
+.hinhanh h3{
+    background: linear-gradient(45deg, #2196F3, #64B5F6, #BBDEFB, #E3F2FD);
+      -webkit-background-clip: text;
+      color: transparent;
+      display: inline-block;
+      padding: 10px;
+      margin: 0;
+      font-size: 2em;
+      font-weight: bold;
+      text-align: center;
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+}

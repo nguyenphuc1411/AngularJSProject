@@ -1,0 +1,630 @@
+
+    <article class="chitiet">
+        <div class="container">
+            <div class="row pt-5">
+                <div class="col-md-4 col-12">
+                    <img class="w-100" src="{{spct.anh}}" alt="">
+                </div>
+                <div class="col-md-8 col-12 text-center">
+                    <h1>{{spct.tensp}}</h1>
+                    <div class="rating text-warning">
+                        <i ng-repeat="star in [].constructor(spct.danhgia) track by $index" class="bi bi-star-fill"> </i>
+                        <span class="text-light">(38 đánh giá của khách hàng)</span>
+
+                    </div>
+                    <h4 class="mt-3 text-info">{{spct.gia|number}}VNĐ</h4>
+                    <p><b>Sử dụng tối đa <span class="badge bg-info fs-5">5 thiết bị</span></b></p>
+                    
+                    <div>
+                        <b>Thời gian sử dụng: </b>
+                        <select name="thoihan" ng-model="thoihan" id="" class="p-2 rounded-5">
+                            <option value="1" selected>1 năm</option>
+                            <option value="2">2 năm</option>
+                            <option value="3">3 năm</option>
+                        </select>
+
+                    </div>
+                    <div class="mt-3">
+                        <b>Số lượng:</b>
+                        <input type="number" min="1" ng-model="soluong" class="text-center soluong rounded-5 p-1 fw-bold" value="1" id="quantity">
+                    </div>
+                    <div class="mt-3">
+                        <b>Thành tiền:</b>
+                        <b class="fw-bold text-warning fs-3">{{soluong*spct.gia*thoihan|number}} VNĐ</b>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <button ng-click="themVaoGio(spct.id,spct.anh,spct.tensp,spct.gia ,thoihan, soluong)" class="form-control btn fw-bold btn-primary rounded-5">Thêm vào giỏ hàng</button>
+                        </div>
+                        <div class="col-6">
+                            <button onclick="thanhtoan()" class="form-control btn fw-bold btn-warning rounded-5">Thanh Toán</button>
+                        </div>
+                    </div>
+                    <p class="mt-3 fw-bold"><i class="fa-regular fa-heart"></i> Thêm vào danh sách yêu thích</p>
+                </div>
+            </div>
+            <!-- TAB -->
+            <div class="container mt-5">
+                <ul class="nav nav-tabs fw-bold" id="myTabs">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="tab1" data-bs-toggle="tab" href="#content1">Mô tả</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="tab2" data-bs-toggle="tab" href="#content2">Bảo hành</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="tab3" data-bs-toggle="tab" href="#content3">Liên hệ</a>
+                  </li>
+                </ul>
+              
+                <div class="tab-content pt-4 pb-4">
+                  <div class="tab-pane fade show active" id="content1">
+                    <h3>{{spct.tensp}} là gì</h3>
+                    <p>{{spct.mota}}</p>
+                </div>
+                  <div class="tab-pane fade text-center" id="content2">
+                    <h3>Tất cả sản phẩm được bán trên PhucNguyen đều có bảo hành!</h3>
+                    <p>Bảo hành theo gói bạn mua. Gói 1 năm – bảo hành 1 năm … gói 4 năm – bảo hành 4 năm.</p>
+                    <p>Nếu bạn nhận được tài khoản có đăng ký ít hơn gói bạn mua thì bạn không cần lo lắng. Chúng tôi đảm bảo sẽ gửi bạn tài khoản mới khi hết hạn!</p>
+                    <p>Để biết chi tiết hơn về điều kiện và thời gian bảo hành hãy đọc ở phần mô tả sản phẩm.
+                    </p>
+                  </div>
+                  <div class="tab-pane fade text-center" id="content3">
+                    <h3 class="">Thông tin liên hệ</h3>
+                    <p>Nếu bạn có bất cứ câu hỏi hoặc thắc mắc nào hãy liên hệ với chúng tôi.</p>
+                    <button onclick="lienhe()" class="btn btn-primary fw-bold"><i class="fa-solid fa-address-book"></i>Liên hệ</button>
+                  </div>
+                </div>
+            </div>
+            
+            <!-- Đánh giá -->
+            <div class="row mt-3 bg-dark p-3 rounded-3">
+
+                <div class="col-lg-6 border-end border-white">
+                    <h2>Đánh giá của khách hàng</h2>
+                    <div class="text-center mt-3">
+                        <h1>5</h1>
+                        <div class="rating text-warning">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <b>38 Reviews</b>
+                    </div>
+                    <div class="mt-4">
+                        <div class="row mt-2">
+                            <div class="col-3">
+                                <div class="rating text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                            </div>
+                            <div class="col-8 mt-1">
+                                <div class="progress">
+                                    <div class="progress-bar" style="width:100%"></div>
+                                  </div>
+                            </div>
+                            <div class="col-1"><b>38</b></div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-3">
+                                <div class="rating text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star"></i>
+                                </div>
+                            </div>
+                            <div class="col-8 mt-1">
+                                <div class="progress">
+                                    <div class="progress-bar" style="width:0%"></div>
+                                  </div>
+                            </div>
+                            <div class="col-1"><b>0</b></div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-3">
+                                <div class="rating text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star"></i>
+                                    <i class="bi bi-star"></i>
+                                </div>
+                            </div>
+                            <div class="col-8 mt-1">
+                                <div class="progress">
+                                    <div class="progress-bar" style="width:0%"></div>
+                                  </div>
+                            </div>
+                            <div class="col-1"><b>0</b></div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-3">
+                                <div class="rating text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star"></i>
+                                    <i class="bi bi-star"></i>
+                                    <i class="bi bi-star"></i>
+                                </div>
+                            </div>
+                            <div class="col-8 mt-1">
+                                <div class="progress">
+                                    <div class="progress-bar" style="width:0%"></div>
+                                  </div>
+                            </div>
+                            <div class="col-1"><b>0</b></div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-3">
+                                <div class="rating text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star"></i>
+                                    <i class="bi bi-star"></i>
+                                    <i class="bi bi-star"></i>
+                                    <i class="bi bi-star"></i>
+                                </div>
+                            </div>
+                            <div class="col-8 mt-1">
+                                <div class="progress">
+                                    <div class="progress-bar" style="width:0%"></div>
+                                  </div>
+                            </div>
+                            <div class="col-1"><b>0</b></div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- Thêm đánh giá -->
+                <div class="col-lg-6 p-4">
+                    <h4 class="mt-5">Thêm đánh giá</h4>
+                    <b>Đánh giá của bạn: </b>
+                    <span class="rating text-warning ms-3">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </span>
+                    <hr>
+                    <h6>Nhận xét của bạn:</h6>
+                    <textarea class="rounded-5 form-control bg-dark text-white"rows="5"></textarea>
+                    <button class="btn btn-primary rounded-5 fw-bold mt-3">Đánh giá</button>
+                </div>
+            </div>
+
+            <div class="mt-4 mb-4 d-flex justify-content-between">
+                <b>38 REVIEWER CHO {{spct.tensp}}</b>
+                <select class="p-2 rounded-5 bg-black text-white" id="filer" name="filer">
+                    <option value="1">Tất cả</option>
+                    <option value="2">Mới nhất</option>
+                    <option value="3">Cũ nhất</option>
+                    <option value="4">Cao nhất</option>
+                    <option value="5">Thấp nhất</option>
+                </select>
+            </div>
+            <!-- các đánh giả -->
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-2 ">
+                    <div class="bg-dark p-3  rounded-3">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fa-solid fa-cart-arrow-down"></i>
+                                <b>Alex</b>
+                            </div>
+                            <span>14/01/2023</span>
+                        </div>
+                        <div class="rating text-warning mt-3 mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <span>Giá rẻ</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-2 ">
+                    <div class="bg-dark p-3  rounded-3">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fa-solid fa-cart-arrow-down"></i>
+                                <b>Alex</b>
+                            </div>
+                            <span>14/01/2023</span>
+                        </div>
+                        <div class="rating text-warning mt-3 mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <span>Giá rẻ</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-2 ">
+                    <div class="bg-dark p-3  rounded-3">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fa-solid fa-cart-arrow-down"></i>
+                                <b>Alex</b>
+                            </div>
+                            <span>14/01/2023</span>
+                        </div>
+                        <div class="rating text-warning mt-3 mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <span>Giá rẻ</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-2 ">
+                    <div class="bg-dark p-3  rounded-3">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fa-solid fa-cart-arrow-down"></i>
+                                <b>Alex</b>
+                            </div>
+                            <span>14/01/2023</span>
+                        </div>
+                        <div class="rating text-warning mt-3 mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <span>Giá rẻ</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-2 ">
+                    <div class="bg-dark p-3  rounded-3">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fa-solid fa-cart-arrow-down"></i>
+                                <b>Alex</b>
+                            </div>
+                            <span>14/01/2023</span>
+                        </div>
+                        <div class="rating text-warning mt-3 mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <span>Giá rẻ</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-2 ">
+                    <div class="bg-dark p-3  rounded-3">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fa-solid fa-cart-arrow-down"></i>
+                                <b>Alex</b>
+                            </div>
+                            <span>14/01/2023</span>
+                        </div>
+                        <div class="rating text-warning mt-3 mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <span>Giá rẻ</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-2 ">
+                    <div class="bg-dark p-3  rounded-3">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fa-solid fa-cart-arrow-down"></i>
+                                <b>Alex</b>
+                            </div>
+                            <span>14/01/2023</span>
+                        </div>
+                        <div class="rating text-warning mt-3 mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <span>Giá rẻ</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-2 ">
+                    <div class="bg-dark p-3  rounded-3">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fa-solid fa-cart-arrow-down"></i>
+                                <b>Alex</b>
+                            </div>
+                            <span>14/01/2023</span>
+                        </div>
+                        <div class="rating text-warning mt-3 mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <span>Giá rẻ</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-2 ">
+                    <div class="bg-dark p-3  rounded-3">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fa-solid fa-cart-arrow-down"></i>
+                                <b>Alex</b>
+                            </div>
+                            <span>14/01/2023</span>
+                        </div>
+                        <div class="rating text-warning mt-3 mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <span>Giá rẻ</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-2 ">
+                    <div class="bg-dark p-3  rounded-3">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fa-solid fa-cart-arrow-down"></i>
+                                <b>Alex</b>
+                            </div>
+                            <span>14/01/2023</span>
+                        </div>
+                        <div class="rating text-warning mt-3 mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <span>Giá rẻ</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-2 ">
+                    <div class="bg-dark p-3  rounded-3">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fa-solid fa-cart-arrow-down"></i>
+                                <b>Alex</b>
+                            </div>
+                            <span>14/01/2023</span>
+                        </div>
+                        <div class="rating text-warning mt-3 mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <span>Giá rẻ</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-2 ">
+                    <div class="bg-dark p-3  rounded-3">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fa-solid fa-cart-arrow-down"></i>
+                                <b>Alex</b>
+                            </div>
+                            <span>14/01/2023</span>
+                        </div>
+                        <div class="rating text-warning mt-3 mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <span>Giá rẻ</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-2 ">
+                    <div class="bg-dark p-3  rounded-3">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fa-solid fa-cart-arrow-down"></i>
+                                <b>Alex</b>
+                            </div>
+                            <span>14/01/2023</span>
+                        </div>
+                        <div class="rating text-warning mt-3 mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <span>Giá rẻ</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-2 ">
+                    <div class="bg-dark p-3  rounded-3">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="fa-solid fa-cart-arrow-down"></i>
+                                <b>Alex</b>
+                            </div>
+                            <span>14/01/2023</span>
+                        </div>
+                        <div class="rating text-warning mt-3 mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <span>Giá rẻ</span>
+                    </div>
+                </div>
+                
+                
+            </div> 
+            <!-- SẢN PHẨM TƯƠNG TỰ -->
+            <h1 class="mt-5 mb-3">Sản phẩm tương tự</h1>
+            <div class="row text-center mb-4">
+                <div class="col-md-3 col-lg-2 col-sm-4 col-6  p-2 product">
+                    <div>
+                        <img class="w-100" src="Images/VPN/hma.png" alt="">
+                        <h6>Tài khoản HMA VPN</h6>
+                        <div class="rating text-warning">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <b class="text-info">180.000đ - 960.000đ</b>
+                        <!-- Nút khi hover -->
+                        <div class="product-button">
+                            <button class="btn btn-primary overlay-buttons">Thêm vào giỏ hàng</button>
+                            <button onclick="motrangchitiet()" class="btn btn-light overlay-buttons">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-lg-2 col-sm-4 col-6 p-2 product">
+                    <div>
+                        <img class="w-100" src="Images/VPN/proxy-ipv4.webp" alt="">
+                        <h6>Proxy IPV4 Private</h6>
+                        <div class="rating text-warning">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <b class="text-info">180.000đ - 960.000đ</b>
+                        <!-- Nút khi hover -->
+                        <div class="product-button">
+                            <button class="btn btn-primary overlay-buttons">Thêm vào giỏ hàng</button>
+                            <button onclick="motrangchitiet()" class="btn btn-light overlay-buttons">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-lg-2 col-sm-4 col-6 p-2 product">
+                    <div>
+                        <img class="w-100" src="Images/VPN/PIA-VPN-Premium.webp" alt="">
+                        <h6>Tài khoản PIA VPN Premium</h6>
+                        <div class="rating text-warning">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <b class="text-info">180.000đ - 760.000đ</b>
+                        <!-- Nút khi hover -->
+                        <div class="product-button">
+                            <button class="btn btn-primary overlay-buttons">Thêm vào giỏ hàng</button>
+                            <button onclick="motrangchitiet()" class="btn btn-light overlay-buttons">Xem chi tiết</button>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-md-3 col-lg-2 col-sm-4 col-6 p-2 product">
+                    <div>
+                        <img class="w-100" src="Images/VPN/tai-khoan-chatgpt.webp" alt="">
+                        <h6>Tài khoản Chat GPT</h6>
+                        <div class="rating text-warning">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <span class="text-decoration-line-through text-secondary">45.000đ</span> <b class="text-info">30.000đ</b>
+                        <!-- Nút khi hover -->
+                        <div class="product-button">
+                            <button class="btn btn-primary overlay-buttons">Thêm vào giỏ hàng</button>
+                            <button onclick="motrangchitiet()" class="btn btn-light overlay-buttons">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-lg-2 col-sm-4 col-6 p-2 product">
+                    <div>
+                        <img class="w-100" src="Images/VPN/telegram-premium.webp" alt="">
+                        <h6>Tài khoản Telegram Premium</h6>
+                        <div class="rating text-warning">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <b class="text-info">80.000đ - 160.000đ</b>
+                        <!-- Nút khi hover -->
+                        <div class="product-button">
+                            <button class="btn btn-primary overlay-buttons">Thêm vào giỏ hàng</button>
+                            <button onclick="motrangchitiet()" class="btn btn-light overlay-buttons">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-lg-2 col-sm4 col-6 p-2 product">
+                    <div>
+                        <img class="w-100" src="Images/VPN/surfshark-vpn.webp" alt="">
+                        <h6>Tài khoản Surfshark VPN Premium</h6>
+                        <div class="rating text-warning">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <b class="text-info">230.000đ - 1260.000đ</b>
+                        <!-- Nút khi hover -->
+                        <div class="product-button">
+                            <button class="btn btn-primary overlay-buttons">Thêm vào giỏ hàng</button>
+                            <!-- nút xem chi tiết -->
+                            <button onclick="motrangchitiet()" class="btn btn-light overlay-buttons">Xem chi tiết</button>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </article>
+
+    <script src="JS/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var navbarToggle = document.querySelector('.navbar-toggler');
+            var navbarNav = document.querySelector('#navbarNav');
+    
+            navbarToggle.addEventListener('click', function () {
+                navbarNav.classList.toggle('show');
+            });
+    
+            document.addEventListener('click', function (event) {
+                if (!event.target.closest('.navbar')) {
+                    navbarNav.classList.remove('show');
+                }
+            });
+        });
+        function lienhe() {
+            document.location="lienhe.html"
+        }
+        function thanhtoan() {
+            document.location="thanhtoan.html"
+        }
+    </script>

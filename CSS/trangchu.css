@@ -1,0 +1,115 @@
+.logo{
+    background: linear-gradient(45deg, #2196F3, #64B5F6, #BBDEFB, #E3F2FD);
+      -webkit-background-clip: text;
+      color: transparent;
+      display: inline-block;
+      padding: 5px;
+      margin: 0;
+      font-weight: bold;
+      text-align: center;
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+header{
+    height: 90px;
+    background-color: rgb(23, 23, 23);
+}
+article{
+    margin-top: 90px;
+    min-height: 640px;
+    font-family:'Roboto', sans-serif ;
+}
+article .tieude{
+   height: 100px;
+   background-color: #202020;
+}
+footer .img-thumbnail{
+    height: 40px;
+}
+footer{
+    background-color: rgb(23, 23, 23);
+}
+
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+       position: fixed;
+       top: 0;
+       left: -100%;
+       width: 50%; /* Chọn chiều rộng phù hợp */
+       height: 100%;
+       background: #333; /* Chọn màu nền phù hợp */
+       transition: 0.3s;
+       z-index: 1;
+    }
+ 
+    .navbar-collapse.show {
+       left: 0;
+    }
+ }
+ /* css trang liên hệ */
+ .lienhe h4:hover{
+    color: green;
+ }
+ .lienhe img{
+    height: 50px;
+ }
+ .lienhe .container{
+    height: 320px;
+ }
+ .lienhe h1{
+    font-size: 80px;
+ }
+ /* css giỏ hàng */
+.giohang table img{
+   height: 50px;
+   width: 50px;
+}
+/* css home */
+/* css slide show */
+#slideshow img{
+   max-height: 400px;
+}
+/* css nút khi hover vào sản phẩm */
+.product{
+   position: relative;
+   overflow: hidden;
+ }
+
+ .product-button {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.5); /* Màu nền overlay */
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   opacity: 0;
+   transition: opacity 0.3s ease;
+ }
+
+ .product:hover .product-button {
+   opacity: 1;
+ }
+
+ .overlay-buttons {
+   margin-top: 10px;
+   font-weight: bold;
+ }
+
+ /* trang thanh toán */
+.thanhtoan img{
+   height: 50px;
+   width: 50px;
+}
+/* css ví */
+.vi .img-thumbnail{
+   height: 80px;
+}
+/* css trang chi tiết */
+.chitiet .soluong{
+   width: 100px;
+}
+

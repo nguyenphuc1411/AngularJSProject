@@ -1,0 +1,68 @@
+
+    <article class="khuyenmai">
+        <div class="container-fluid tieude d-flex align-items-center justify-content-center">
+            <h1>Khuyến Mãi</h1>
+        </div>
+        <div class="row text-center p-4">
+            <div class="col-lg-3 col-6">
+                <b>Sắp xếp theo:</b>
+                <select class="bg-black text-white p-2 rounded-4" name="" id="">
+                    <option value="1">Phổ biến</option>
+                    <option value="2">Mới nhất</option>
+                    <option value="3">Đánh giá</option>
+                    <option value="4">Giá</option>
+                </select>
+            </div>
+            <div class="col-lg-3 col-6">
+                <b>Giá tối đa: </b>
+                <input style="width: 100px;" class="bg-black text-white fw-bold p-2 rounded-5" type="number">
+                đ
+            </div>
+            <div class="col-lg-3 col-6">
+                <b>Đánh giá: </b>
+                <select class="bg-black p-2 rounded-4 text-warning" name="" id="">
+                    <option value="0" selected>All</option>
+                    <option class="text-warning" value="1">
+                        &#9733; &#9733; &#9733; &#9733; &#9733;
+                    </option>
+                    <option value="2">
+                        &#9733; &#9733; &#9733; &#9733;
+                    </option>
+                    <option value="3">
+                        &#9733; &#9733; &#9733; 
+                    </option>
+                    <option value="4">
+                        &#9733; &#9733; 
+                    </option>
+                    <option value="5">
+                        &#9733; 
+                    </option>
+                </select>
+            </div>
+            <div class="col-lg-3 col-6">
+                <button class="btn bg-primary px-4 fw-bold text-white rounded-3">Lọc</button>
+            </div>
+        </div>
+        <!-- Sản phẩm -->
+        <div class="row text-center m-2">
+            <div class="row text-center m-2">
+                <div ng-repeat="s in listsp | filter: {hot:1 }" class="col-md-3 col-lg-2 col-sm-4 col-6  p-2 product">
+                    <div>
+                        <label ng-if="s.hot==1" class="badge bg-danger position-absolute m-3">HOT</label>
+                        <img class="w-100" ng-src="{{s.anh}}" alt="">
+                        <h5>{{s.tensp}}</h5>
+                        <div class="rating text-warning">
+                            <i ng-repeat="star in [].constructor(s.danhgia) track by $index" class="bi bi-star-fill"> </i>
+                        </div>
+                        
+                        <b class="text-info">{{s.gia|number}}VNĐ</b>
+                        <!-- Nút khi hover -->
+                        <div class="product-button">
+                            <button ng-click="themVaoGio(s.id,s.anh,s.tensp,s.gia)" class="btn btn-primary overlay-buttons">Thêm vào giỏ hàng</button>
+                            <a href="#!sanpham/{{danhmuc}}/{{s.id}}"  class="btn btn-light overlay-buttons">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>

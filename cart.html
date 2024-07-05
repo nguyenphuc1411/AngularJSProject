@@ -1,0 +1,62 @@
+
+    <article class="giohang">
+        <div class="container-fluid tieude d-flex justify-content-center align-items-center">
+            <h1>Giỏ Hàng</h1>
+        </div>
+        <div class="row p-lg-5 p-3">
+            <div class="col-12 col-md-8">
+                <table class="table text-center text-white table-bordered table-responsive">
+                    <tr class="">
+                        <td><input type="checkbox" ng-model="selectAll" ng-change="chonhet()"></td>
+                        <th>Sản phẩm</th>
+                        <th>Giá</th>
+                        <th>Thời hạn</th>
+                        <th>Số lượng</th>
+                        <th>Thành tiền</th>
+                        <th></th>
+                    </tr>
+                    <tr ng-repeat="sp in gioHang">
+                        <td><input type="checkbox" ng-model="sp.buy"></td>
+                        <td><img src="{{sp.anhSP}}">{{sp.ten}}</td>
+                        <td>{{sp.giaSP|number}}</td>
+                        <td>{{sp.thoihanSP}} năm</td>
+                        <td><input name="sl" required min="1" max="100" ng-disabled="!sp.buy" type="number" ng-model="sp.soluongSP" style="width: 50px;"></td>
+                        <td>{{tinhTien(sp)|number}}</td>
+                        <td><button ng-click="xoa(sp.idSP)"><i class="fa-solid fa-trash"></i></button></td>
+                    </tr>
+                </table>
+                <hr>
+                <div class="m-5">
+                    <input type="text" class="rounded-5 border border-white bg-dark p-2 text-white fw-bold" placeholder="Mã giảm giá">
+                    <button class="btn btn-primary fw-bold rounded-5">Áp dụng</button>
+                </div>    
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="card bg-dark p-3 fw-bold">
+                    <div class="card-header fs-2">
+                        Tổng tiền
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <b>Tạm tính</b>
+                            <span>{{tongTien()|number}}</span>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between">
+                            <b>Giảm giá</b>
+                            <span>0đ</span>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between">
+                            <b>Tổng tiền</b>
+                            <span class="text-info fs-5">{{tongTien()|number}}đ</span>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button onclick="thanhtoan()" class="btn btn-primary fw-bold rounded-5">Thanh Toán</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>

@@ -1,0 +1,187 @@
+<article class="home">
+    <div class="row">
+        <!-- Carousel -->
+        <div id="slideshow" class="carousel slide col-12 col-lg-6" data-bs-ride="carousel">
+            <!-- Indicators/dots -->
+            <div class="carousel-indicators">
+            <button type="button" data-bs-target="#slideshow" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#slideshow" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#slideshow" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#slideshow" data-bs-slide-to="3"></button>
+            </div>
+        
+            <!-- The slideshow/carousel -->
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="Images/slide.jpg" alt="" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="Images/slide1.png" alt="" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="Images/slide2.png" alt="" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="Images/slide3.jpg" alt="" class="d-block w-100">
+            </div>
+            </div>
+        
+            <!-- Left and right controls/icons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#slideshow" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#slideshow" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="row">
+                <div class="col-6">
+                    <img class="w-100" src="Images/slide.jpg" alt="">
+                </div>
+                <div class="col-6">
+                    <img class="w-100" src="Images/slide1.png" alt="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <img class="w-100" src="Images/slide2.png" alt="">
+                </div>
+                <div class="col-6">
+                    <img class="w-100" src="Images/slide4.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <hr>
+    <h1 class="ms-3">Sản phẩm bán chạy</h1>
+
+    <!-- Sản phẩm bán chạy -->
+
+    <div class="row text-center m-2">
+        <div ng-repeat="s in listsp" ng-if="s.hot === 1" class="col-md-3 col-lg-2 col-sm-4 col-6  p-2 product">
+            <div>
+                <label class="badge bg-danger position-absolute m-3">HOT</label>
+                <img class="w-100" ng-src="{{s.anh}}" alt="">
+                <h5>{{s.tensp}}</h5>
+                <div class="rating text-warning">
+                    <i ng-repeat="star in [].constructor(s.danhgia) track by $index" class="bi bi-star-fill"> </i>
+                </div>
+                
+                <b class="text-info">{{s.gia|number}}VNĐ</b>
+                <!-- Nút khi hover -->
+                <div class="product-button">
+                    <button class="btn btn-primary overlay-buttons">Thêm vào giỏ hàng</button>
+                    <a href="#!sanpham/{{danhmuc}}/{{s.id}}"  class="btn btn-light overlay-buttons">Xem chi tiết</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="ms-3">Sản phẩm phổ biến</h1>
+    <div class="row p-3">
+        <!-- VPN -->
+        <div class="col-lg-3 col-md-3 col-sm-6 p-3">
+            <div class="d-flex justify-content-between">
+                <b>VPN</b>
+                <button class="btn btn-dark rounded-5 fw-bold">Khám phá</button>
+            </div>
+            <div class="bg-dark p-3 mt-3 rounded-3">
+                <div ng-repeat="s in listsp | filter:{loai: 'vpn'}" class="row mt-3">
+                    <div class="col-4">
+                        <img ng-src="{{s.anh}}" class="w-100">
+                    </div>
+                    <div class="col-8">
+                        <h6>{{s.tensp}}</h6>
+                        <div class="rating text-warning">
+                            <i ng-repeat="star in [].constructor(s.danhgia) track by $index" class="bi bi-star-fill"></i>
+                        </div>
+                        <b class="text-info">{{s.gia | number}}VNĐ</b>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <!-- Giải trí -->
+        <div class="col-lg-3 col-md-3 col-sm-6 p-3">
+            <div class="d-flex justify-content-between">
+                <b>GIẢI TRÍ</b>
+                <button class="btn btn-dark rounded-5 fw-bold">Khám phá</button>
+            </div>
+            <div class="bg-dark p-3 mt-3 rounded-3">
+                <div ng-repeat="s in listsp | filter:{loai: 'giải trí'}" class="row mt-3">
+                    <div class="col-4">
+                        <img ng-src="{{s.anh}}" class="w-100">
+                    </div>
+                    <div class="col-8">
+                        <h6>{{s.tensp}}</h6>
+                        <div class="rating text-warning">
+                            <i ng-repeat="star in [].constructor(s.danhgia) track by $index" class="bi bi-star-fill"></i>
+                        </div>
+                        <b class="text-info">{{s.gia | number}}VNĐ</b>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <!-- Game -->
+        <div class="col-lg-3 col-md-3 col-sm-6 p-3">
+            <div class="d-flex justify-content-between">
+                <b>GAME</b>
+                <button class="btn btn-dark rounded-5 fw-bold">Khám phá</button>
+            </div>
+            <div class="bg-dark p-3 mt-3 rounded-3">
+                <div ng-repeat="s in listsp | filter:{loai: 'game'}" class="row mt-3">
+                    <div class="col-4">
+                        <img ng-src="{{s.anh}}" class="w-100">
+                    </div>
+                    <div class="col-8">
+                        <h6>{{s.tensp}}</h6>
+                        <div class="rating text-warning">
+                            <i ng-repeat="star in [].constructor(s.danhgia) track by $index" class="bi bi-star-fill"></i>
+                        </div>
+                        <b class="text-info">{{s.gia | number}}VNĐ</b>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 p-3">
+            <div class="d-flex justify-content-between">
+                <b>HỌC TẬP</b>
+                <button class="btn btn-dark rounded-5 fw-bold">Khám phá</button>
+            </div>
+            <div class="bg-dark p-3 mt-3 rounded-3">
+                <div ng-repeat="s in listsp | filter:{loai: 'học tập'}" class="row mt-3">
+                    <div class="col-4">
+                        <img ng-src="{{s.anh}}" class="w-100">
+                    </div>
+                    <div class="col-8">
+                        <h6>{{s.tensp}}</h6>
+                        <div class="rating text-warning">
+                            <i ng-repeat="star in [].constructor(s.danhgia) track by $index" class="bi bi-star-fill"></i>
+                        </div>
+                        <b class="text-info">{{s.gia | number}}VNĐ</b>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+
+
+
+    <!-- Lời chào -->
+
+    <div class="container mb-3">
+        <h4>Chào mừng đến với PhucNguyen</h4>
+        <p>Miathi là điểm đến hàng đầu cho mọi nhu cầu về tài khoản Premium, phần mềm bản quyền và key game với giá cả cực kỳ hấp dẫn.
+             Với mục tiêu mang lại trải nghiệm tốt nhất cho khách hàng, chúng tôi không ngừng cải tiến và mở rộng danh mục sản phẩm. 
+            Chúng tôi hiểu rằng việc lựa chọn một dịch vụ đáng tin cậy và an toàn là một ưu tiên hàng đầu. Đó chính là lý do tại sao Miathi luôn đặt sự bảo mật và chất lượng lên hàng đầu.
+        </p>
+        <div id="demo" class="collapse">
+        <p>Khi ghé thăm trang web của chúng tôi, bạn sẽ được khám phá một thế giới của các sản phẩm chất lượng từ các nhà cung cấp hàng đầu. Chúng tôi cam kết cung cấp giải pháp phù hợp nhất với nhu cầu của bạn, mang đến sự hài lòng và tin tưởng.
+
+            Với đội ngũ nhân viên chuyên nghiệp và giàu kinh nghiệm, Miathi không chỉ là nơi để mua sắm, mà còn là đối tác đáng tin cậy của bạn. Chúng tôi luôn sẵn lòng lắng nghe, tư vấn và giúp bạn chọn lựa sản phẩm phù hợp nhất.
+        </p>
+        </div>
+        <a class="" data-bs-toggle="collapse" data-bs-target="#demo">Đọc thêm</a>
+    </div>
+</article>

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-them="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="CSS/trangchu.css">
+    <script src="JS/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+</head>
+<body class="bg-black text-white" ng-app="myapp">
+    <header class="fixed-top d-flex align-items-center">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-md-9 col-lg-9 col-12">
+                    <nav class="navbar navbar-expand-lg navbar-dark">
+                        <div class="container-fluid row">
+                            <div class="navbar-brand logo col-lg-4 col-12">PhucNguyen.C&COPY;M</div>
+                            <div class="collapse navbar-collapse col-lg-8 justify-content-evenly" id="navbarNav">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item me-3">
+                                        <a class="nav-link fw-bold" href="#!/">
+                                            <i class="fa-solid fa-house-user"></i> Home
+                                        </a>
+                                    </li>
+                                    <li class="nav-item dropdown me-3">
+                                        <a class="nav-link fw-bold dropdown-toggle" href="danhmuc.html" role="button" data-bs-toggle="dropdown">
+                                            <i class="fa-solid fa-clipboard-list"></i> Danh Mục
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item fw-bold" ng-href="#!/sanpham/vpn"><i class="fa-solid fa-screwdriver-wrench"></i>VPN</a></li>
+                                            <li><a class="dropdown-item fw-bold"  ng-href="#!/sanpham/game"><i class="fa-solid fa-gamepad"></i>Game</a></li>
+                                            <li><a class="dropdown-item fw-bold" ng-href="#!/sanpham/học tập"><i class="fa-solid fa-school"></i>Học tập</a></li>
+                                            <li><a class="dropdown-item fw-bold" ng-href="#!/sanpham/giải trí"><i class="fa-brands fa-google-play"></i>Giải trí</a></li>
+                                            <li><a class="dropdown-item fw-bold" ng-href="#!/Lưu Trữ"><i class="fa-solid fa-database"></i>Lưu trữ</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item me-3">
+                                        <a class="nav-link fw-bold" href="#!vi">
+                                            <i class="fa-solid fa-wallet"></i> Ví
+                                        </a>
+                                    </li>
+                                    <li class="nav-item me-3">
+                                        <a class="nav-link fw-bold" href="#!khuyenmai">
+                                            <i class="fa-solid fa-fire"></i> Khuyến Mãi
+                                        </a>
+                                    </li>
+                                    <li class="nav-item me-3">
+                                        <a class="nav-link fw-bold" href="#!lienhe">
+                                            <i class="fa-regular fa-address-book"></i> Liên Hệ
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+
+                <!-- Tìm kiếm Tài khoản Giỏ hàng -->
+                <div class="col-md-3 col-lg-3 col-sm-12 col-12 mt-md-2 mt-0">
+                    <!-- Thanh modal -->
+                    <div class="row">
+                        <!-- Thanh tìm kiếm -->
+                        <div class="col-1 d-lg-none d-block">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span><i class="fa-solid fa-bars"></i></span>
+                            </button>
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-7">
+                            <div class="container">
+                                
+                                <input type="text" class="form-control rounded-5" placeholder="Tìm kiếm sản phẩm" data-bs-toggle="modal"  data-bs-target="#myModal">
+                            </div>
+                        </div>
+                        <!-- Profile -->
+                        <div class="col-md-2 col-sm-2 col-2">
+                            <div class="dropdown">
+                                <i class="fa-regular fa-user fa-2x dropdown-toggle" data-bs-toggle="dropdown"></i>
+                                <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item fw-bold" href="#!taikhoan">Tài khoản</a></li>
+                                  <li><a class="dropdown-item fw-bold" href="#!vi">Ví</a></li>
+                                  <li><a class="dropdown-item fw-bold" href="login.html">Đăng xuất</a></li>
+                                </ul>
+                              </div>
+                        </div>
+                        <!-- Giỏ hàng -->
+                        <div class="col-md-2 col-sm-2 col-2">
+                            <a href="#!cart"><i class="fa-solid fa-cart-plus fa-2x"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+
+        </div>
+    </header>
+
+    <div ng-view></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container-fluid d-flex justify-content-center align-items-center pt-3">
+            <span class="fw-bold me-5">Phương thức thanh toán:</span>
+            <img class="img-thumbnail me-3" src="Images/thanhtoan/bank.jpg" alt="">
+            <img class="img-thumbnail me-3" src="Images/thanhtoan/momo.jpg" alt="">
+            <img class="img-thumbnail me-3" src="Images/thanhtoan/zalopay.webp" alt="">
+            <img class="img-thumbnail me-3" src="Images/thanhtoan/paypal.png" alt="">
+        </div>
+        <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <h4 class="logo">PhucNguyen.C&copy;M</h4><br>
+                    Shop bán tài khoản premium, game, bản quyền phần mềm, VPN,
+                    ...uy tín chất lượng cao
+                </div>
+                <div class="col-lg-3">
+                    <h4>FAQ</h4>
+                    <h6>Hướng dẫn tạo tài khoản</h6>
+                    <h6>Hướng dẫn nạp tiền</h6>
+                    <h6>Hướng dẫn mua hàng</h6>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Tài khoản</h4>
+                    <h6>Đăng nhập</h6>
+                    <h6>Ví</h6>
+                    <h6>Đăng xuất</h6>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Liên hệ</h4>
+                    <h6>support@phucnguyen.com</h6>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-6">
+                    Copyright 2024- <span class="text-success fw-bold">PhucNguyen.com</span>
+                </div>
+                <div class="col-lg-5 col-6">
+                    <a class="text-decoration-none" href=""><b class="me-3">Điều khoản dịch vụ</b></a>
+                    <a class="text-decoration-none" href=""><b class="me-3">Chính sách bảo mật</b></a> 
+                    <a class="text-decoration-none" href=""><b>Chính sách hoàn tiền</b></a> 
+                </div>
+            </div>
+        </div>
+        <hr>
+    </footer>
+
+    <script src="JS/bootstrap.bundle.min.js"></script>
+    <script src="JS/cart.js"></script>
+    <script src="JS/sanpham.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var navbarToggle = document.querySelector('.navbar-toggler');
+            var navbarNav = document.querySelector('#navbarNav');
+    
+            navbarToggle.addEventListener('click', function () {
+                navbarNav.classList.toggle('show');
+            });
+    
+            document.addEventListener('click', function (event) {
+                if (!event.target.closest('.navbar')) {
+                    navbarNav.classList.remove('show');
+                }
+            });
+        });
+        var app = angular.module("myapp", ["ngRoute"]);
+        
+        app.config(function($routeProvider) {
+            $routeProvider
+            .when("/", {
+                templateUrl : "trangchu.html",
+                controller:"trangChuCtr"
+            })
+            .when("/sanpham/:sanpham", {
+                templateUrl : "sanpham.html",
+                controller:"sanphamCtr"
+            })
+            .when("/sanpham/:sanpham/:id", {
+                templateUrl : "chitiet.html",
+                controller:"chitietCtr"
+            })
+            .when("/vi", {
+                templateUrl : "vi.html",
+                controller: "viCtr"
+            })
+            .when("/khuyenmai", {
+                templateUrl : "khuyenmai.html",
+                controller: "khuyenmaiCtr"
+            })
+            .when("/taikhoan", {
+                templateUrl : "taikhoan.html"
+            })
+            .when("/cart", {
+                templateUrl : "cart.html",
+                controller:"giohangCtr"
+            })
+            .when("/lienhe", {
+                templateUrl : "lienhe.html"
+            });
+        });
+        app.controller("trangChuCtr", function ($scope,$http) {  
+            $scope.listsp=[];
+            $http.get("JS/sanpham.json").then(
+                function (d) {
+                    $scope.listsp = d.data;
+                },
+                function (e) {
+                    alert("Lỗi: " + e.statusText);
+                }
+            );          
+        });
+        app.controller("sanphamCtr", function ($scope, $http, $routeParams) {
+            $scope.listsp = [];
+            $scope.sapxep = "";
+            $scope.sosao = "";
+            $scope.danhmuc = $routeParams.sanpham;
+
+            $http.get("JS/sanpham.json").then(
+                function(d) {
+                    $scope.listsp = d.data;
+                    $scope.countProducts = function() {
+                        var count = 0;
+                        angular.forEach($scope.listsp, function(product) {
+                            if (product.loai === $routeParams.sanpham) {
+                                count++;
+                            }
+                        });
+                        return count;
+                    };
+                },
+                function(e) {
+                    alert("Lỗi: " + e.statusText);
+                }
+            );
+
+            // Pagination logic
+            $scope.start=0;
+            $scope.currentPage=1;
+            $scope.pageSize=12;
+            $scope.pageCount=0;
+            // Function to generate an array of page numbers for pagination
+            $scope.getPages = function() {
+                $scope.pageCount = Math.ceil($scope.countProducts() / $scope.pageSize);
+                var pages = [];
+                for (var i = 1; i <= $scope.pageCount; i++) {
+                    pages.push(i);
+                }
+                return pages;
+            };
+            // Function to get the current page of products
+            // Function to update the current page
+            $scope.phantrang = function(trang) {
+                if (trang == 1) {
+                    $scope.start = 0;
+                    $scope.currentPage=1;
+                } else {
+                    if (trang == $scope.pageCount) {
+                        $scope.start=($scope.pageCount-1)*$scope.pageSize;
+                        $scope.currentPage=$scope.pageCount;
+                    } else {
+                        $scope.start = (trang - 1) * $scope.pageSize;
+                        $scope.currentPage=trang;
+                    }
+                }
+            }
+           
+            $scope.sapxep1 = function() {
+                switch ($scope.sapxeptheo) {
+                    case "0": // Lựa chọn "Mặc định"
+                        // Đặt lại giá trị cho biến sapxeptheogia và không thay đổi gì
+                        $scope.sapxep = "";
+                        break;
+                    case "1": // Lựa chọn "Giá giảm dần"
+                        $scope.sapxep = "-gia";
+                        break;
+                    case "2": // Lựa chọn "Giá tăng dần"
+                        $scope.sapxep = "gia";
+                        break;
+                    case "3": // Lựa chọn "A-Z"
+                        $scope.sapxep = "tensp";
+                        break;
+                    case "4": // Lựa chọn "Z-A"
+                        $scope.sapxep = "-tensp";
+                        break;
+                    default:
+                        break;
+                }
+            };
+
+            $scope.sapxep2 = function() {
+                switch ($scope.danhgia) {
+                    case "0": // Lựa chọn "Mặc định"
+                        // Đặt lại giá trị cho biến sapxeptheogia và không thay đổi gì
+                        $scope.sosao = "";
+                        break;
+                    case "1":
+                        $scope.sosao = 5;
+                        break;
+                    case "2":
+                        $scope.sosao = 4;
+                        break;
+                    case "3":
+                        $scope.sosao = 3;
+                        break;
+                    case "4":
+                        $scope.sosao = 2;
+                        break;
+                    case "5":
+                        $scope.sosao = 1;
+                        break;
+                    default:
+                        break;
+                }
+            };
+
+            // Xử lý thêm sản phẩm vào giỏ hàng
+            $scope.giohang = JSON.parse(sessionStorage.getItem('giohang')) || [];
+
+            $scope.themVaoGio = function(id, anh, tensp, gia) {
+                var existingItemIndex = $scope.giohang.findIndex(function(item) {
+                    return item.idSP === id;
+                });
+
+                if (existingItemIndex !== -1) {
+                    // Nếu sản phẩm đã tồn tại, tăng số lượng
+                    $scope.giohang[existingItemIndex].soluongSP++;
+                    alert("Cập nhật giỏ hàng thành công!");
+                } else {
+                    // Nếu sản phẩm chưa tồn tại, thêm mới vào giỏ hàng với số lượng và thời hạn mặc định là 1
+                    var cartItem = {
+                        idSP: id,
+                        anhSP: anh,
+                        ten: tensp,
+                        giaSP: gia,
+                        thoihanSP: 1,
+                        soluongSP: 1
+                    };
+                    $scope.giohang.push(cartItem);
+                    alert("Thêm vào giỏ hàng thành công!");
+                }
+
+                // Lưu giỏ hàng vào sessionStorage sau mỗi lần cập nhật
+                sessionStorage.setItem('giohang', JSON.stringify($scope.giohang));
+            };
+        });
+
+        app.controller("chitietCtr", function ($scope, $http, $routeParams) {
+            $scope.id = $routeParams.id;
+            $scope.listsp = [];
+            $http.get("JS/sanpham.json").then(
+                function (d) {
+                    $scope.listsp = d.data;
+
+                    // Di chuyển phần logic xử lý dữ liệu vào đây
+                    $scope.spct = {};
+                    for (let i = 0; i < $scope.listsp.length; i++) {
+                        var sp = $scope.listsp[i];
+                        if (sp.id == $scope.id) {
+                            $scope.spct = sp;
+                            break;
+                        }
+                    }
+                },
+                function (e) {
+                    alert("Lỗi: " + e.statusText);
+                }
+            );
+
+            // lấy thông tin giỏ hàng
+            $scope.giohang = JSON.parse(sessionStorage.getItem('giohang')) || [];
+
+            $scope.themVaoGio = function(id,anh,tensp,gia,thoihan,soluong) {
+                var existingItemIndex = $scope.giohang.findIndex(function(item) {
+                    return item.idSP === id && item.thoihanSP === thoihan;
+                });
+                if(thoihan==null || soluong ==null)
+                {
+                    alert("Vui lòng chọn thời hạn hoặc số lượng");
+                }
+                else{
+                    if (existingItemIndex !== -1) {
+                        // Nếu sản phẩm đã tồn tại, tăng số lượng
+                        $scope.giohang[existingItemIndex].soluongSP += soluong;
+                        alert("Cập nhật giỏ hàng thành công!");
+                }   else {
+                    // Nếu sản phẩm chưa tồn tại, thêm mới vào giỏ hàng
+                        var cartItem = {
+                            idSP: id,
+                            anhSP:anh,
+                            ten:tensp,
+                            giaSP:gia, // ID của sản phẩm
+                            thoihanSP: thoihan,
+                            soluongSP: soluong
+                        };
+                        $scope.giohang.push(cartItem);
+                        alert("Thêm vào giỏ hàng thành công!")
+                    }
+                }
+                
+                // Lưu giỏ hàng vào sessionStorage sau mỗi lần cập nhật
+                sessionStorage.setItem('giohang', JSON.stringify($scope.giohang));
+            }
+
+
+        });
+        
+        app.controller("giohangCtr", function ($scope) {
+            // Lấy giỏ hàng
+            $scope.gioHang = JSON.parse(sessionStorage.getItem('giohang')) || [];
+            
+            $scope.gioHang = JSON.parse(sessionStorage.getItem('giohang')) || [];
+
+            $scope.xoa = function(id) {
+                var confirmed = confirm("Bạn có chắc chắn muốn xóa?");
+                if (confirmed) {
+                    var indexToRemove = -1;
+                    for (var i = 0; i < $scope.gioHang.length; i++) {
+                        if ($scope.gioHang[i].idSP === id) {
+                            indexToRemove = i;
+                            break;
+                        }
+                    }
+                    if (indexToRemove !== -1) {
+                        $scope.gioHang.splice(indexToRemove, 1);
+                        sessionStorage.setItem('giohang', JSON.stringify($scope.gioHang));
+                    }
+                }
+            };
+
+            // Khởi tạo biến selectAll
+            $scope.selectAll = false;
+            
+            // Hàm chọn hết
+            $scope.chonhet = function() {
+                angular.forEach($scope.gioHang, function(item) {
+                    item.buy = $scope.selectAll;
+                });
+            };
+            $scope.tinhTien = function(sp) {
+                return sp.soluongSP * sp.giaSP*sp.thoihanSP;
+            };
+            $scope.tongTien = function() {
+                $scope.total = 0;
+                angular.forEach($scope.gioHang, function(sp) {
+                    if (sp.buy) {
+                        $scope.total += sp.soluongSP * sp.giaSP*sp.thoihanSP;
+                    }
+                });
+                return $scope.total;
+            };
+
+
+    });
+
+        app.controller("timkiem",function ($scope,$http) {
+            $scope.listsp=[];
+            $http.get("JS/sanpham.json").then(
+                function (d) {
+                    $scope.listsp = d.data;
+                },
+                function (e) {
+                    alert("Lỗi: " + e.statusText);
+                }
+            );
+        });
+        app.controller("khuyenmaiCtr",function ($scope,$http) {
+            $scope.listsp=[];
+            $http.get("JS/sanpham.json").then(
+                function (d) {
+                    $scope.listsp = d.data;
+                },
+                function (e) {
+                    alert("Lỗi: " + e.statusText);
+                }
+            );
+        })
+    </script>
+    
+    
+    <!-- The Modal -->
+    <div ng-controller="timkiem" class="modal" id="myModal">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content bg-black text-white">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <input ng-model="keyword"  type="text" placeholder="Tìm kiếm sản phẩm" class="form-control rounded-5 ms-3 me-3">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+        
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div>
+                        <h3 class="fw-bold">Các cụm từ phổ biến:</h3>
+                        <div>
+                            <button class="btn btn-primary m-2 fw-bold">NORD VPN</button>
+                            <button class="btn btn-primary m-2 fw-bold">VPN</button>
+                            <button class="btn btn-primary m-2 fw-bold">Canvas</button>
+                            <button class="btn btn-primary m-2 fw-bold">Chat GPT</button>
+                            <button class="btn btn-primary m-2 fw-bold">Football</button>
+                        </div>
+                        <div class="row p-3">
+                            <!-- VPN -->
+                            <div class="col-lg-3 col-md-3 col-sm-6 p-3">
+                                <div class="d-flex justify-content-between">
+                                    <b>VPN</b>
+                                    <button class="btn btn-dark rounded-5 fw-bold">Khám phá</button>
+                                </div>
+                                <div class="bg-dark p-3 mt-3 rounded-3">
+                                    <div ng-repeat="s in listsp | filter:{loai: 'vpn'}| filter:keyword" class="row mt-3">
+                                        <div class="col-4">
+                                            <img ng-src="{{s.anh}}" class="w-100">
+                                        </div>
+                                        <div class="col-8">
+                                            <h6>{{s.tensp}}</h6>
+                                            <div class="rating text-warning">
+                                                <i ng-repeat="star in [].constructor(s.danhgia) track by $index" class="bi bi-star-fill"></i>
+                                            </div>
+                                            <b class="text-info">{{s.gia | number}}VNĐ</b>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            <!-- Giải trí -->
+                            <div class="col-lg-3 col-md-3 col-sm-6 p-3">
+                                <div class="d-flex justify-content-between">
+                                    <b>GIẢI TRÍ</b>
+                                    <button class="btn btn-dark rounded-5 fw-bold">Khám phá</button>
+                                </div>
+                                <div class="bg-dark p-3 mt-3 rounded-3">
+                                    <div ng-repeat="s in listsp | filter:{loai: 'giải trí'}|filter:keyword" class="row mt-3">
+                                        <div class="col-4">
+                                            <img ng-src="{{s.anh}}" class="w-100">
+                                        </div>
+                                        <div class="col-8">
+                                            <h6>{{s.tensp}}</h6>
+                                            <div class="rating text-warning">
+                                                <i ng-repeat="star in [].constructor(s.danhgia) track by $index" class="bi bi-star-fill"></i>
+                                            </div>
+                                            <b class="text-info">{{s.gia | number}}VNĐ</b>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            <!-- Game -->
+                            <div class="col-lg-3 col-md-3 col-sm-6 p-3">
+                                <div class="d-flex justify-content-between">
+                                    <b>GAME</b>
+                                    <button class="btn btn-dark rounded-5 fw-bold">Khám phá</button>
+                                </div>
+                                <div class="bg-dark p-3 mt-3 rounded-3">
+                                    <div ng-repeat="s in listsp | filter:{loai: 'game'}|filter:keyword" class="row mt-3">
+                                        <div class="col-4">
+                                            <img ng-src="{{s.anh}}" class="w-100">
+                                        </div>
+                                        <div class="col-8">
+                                            <h6>{{s.tensp}}</h6>
+                                            <div class="rating text-warning">
+                                                <i ng-repeat="star in [].constructor(s.danhgia) track by $index" class="bi bi-star-fill"></i>
+                                            </div>
+                                            <b class="text-info">{{s.gia | number}}VNĐ</b>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 p-3">
+                                <div class="d-flex justify-content-between">
+                                    <b>HỌC TẬP</b>
+                                    <button class="btn btn-dark rounded-5 fw-bold">Khám phá</button>
+                                </div>
+                                <div class="bg-dark p-3 mt-3 rounded-3">
+                                    <div ng-repeat="s in listsp | filter:{loai: 'học tập'}|filter:keyword" class="row mt-3">
+                                        <div class="col-4">
+                                            <img ng-src="{{s.anh}}" class="w-100">
+                                        </div>
+                                        <div class="col-8">
+                                            <h6>{{s.tensp}}</h6>
+                                            <div class="rating text-warning">
+                                                <i ng-repeat="star in [].constructor(s.danhgia) track by $index" class="bi bi-star-fill"></i>
+                                            </div>
+                                            <b class="text-info">{{s.gia | number}}VNĐ</b>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                    
+        
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+        
+            </div>
+        </div>
+    </div>
+</body>
+</html>
